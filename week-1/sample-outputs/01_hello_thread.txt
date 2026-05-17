@@ -1,0 +1,30 @@
+Sample output of: ./hello_thread
+=================================
+
+Note: each run may produce the thread lines in a different order,
+because the OS schedules threads non-deterministically.
+
+--- Run 1 ---
+Hello from thread 0
+Hello from thread 1
+Hello from thread 2
+Hello from thread 3
+Hello from thread 4
+Main thread: all done.
+
+--- Run 2 ---
+Hello from thread 0
+Hello from thread 1
+Hello from thread 2
+Hello from thread 3
+Hello from thread 4
+Main thread: all done.
+
+--- Run 3 ---
+Hello from thread 0
+Hello from thread 1
+Hello from thread 2
+Hello from thread 3
+Hello from thread 4
+Main thread: all done.
+

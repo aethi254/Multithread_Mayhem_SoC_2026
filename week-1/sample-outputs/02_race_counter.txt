@@ -1,0 +1,36 @@
+Sample output of: ./race_counter
+=================================
+
+Five consecutive runs. Notice how the final value can differ each time
+and is often (but not always) different from the expected 20000000.
+
+--- Run 1 ---
+Final counter:  12471651
+Expected:       20000000
+Difference:     7528349
+Result: WRONG by 7528349 — race condition observed.
+
+--- Run 2 ---
+Final counter:  11971886
+Expected:       20000000
+Difference:     8028114
+Result: WRONG by 8028114 — race condition observed.
+
+--- Run 3 ---
+Final counter:  11468912
+Expected:       20000000
+Difference:     8531088
+Result: WRONG by 8531088 — race condition observed.
+
+--- Run 4 ---
+Final counter:  13284898
+Expected:       20000000
+Difference:     6715102
+Result: WRONG by 6715102 — race condition observed.
+
+--- Run 5 ---
+Final counter:  17272721
+Expected:       20000000
+Difference:     2727279
+Result: WRONG by 2727279 — race condition observed.
+

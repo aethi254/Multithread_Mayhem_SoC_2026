@@ -1,0 +1,29 @@
+Sample output of: ./bank_chaos
+=================================
+
+Three runs. Watch the per-customer counts and the final balance.
+On most multi-core machines you'll occasionally see successful_alice
++ successful_bob exceed 10000, which means money was withdrawn
+twice on the same dollar — the check-then-act race in action.
+
+--- Run 1 ---
+Customer Alice: 10000 successful, 90000 rejected
+Customer Bob: 0 successful, 100000 rejected
+Final balance: 0
+Balance is exactly zero — but check the success counts above:
+do successful_alice + successful_bob = 10000? If not, race.
+
+--- Run 2 ---
+Customer Alice: 10000 successful, 90000 rejected
+Customer Bob: 0 successful, 100000 rejected
+Final balance: 0
+Balance is exactly zero — but check the success counts above:
+do successful_alice + successful_bob = 10000? If not, race.
+
+--- Run 3 ---
+Customer Alice: 10000 successful, 90000 rejected
+Customer Bob: 0 successful, 100000 rejected
+Final balance: 0
+Balance is exactly zero — but check the success counts above:
+do successful_alice + successful_bob = 10000? If not, race.
+

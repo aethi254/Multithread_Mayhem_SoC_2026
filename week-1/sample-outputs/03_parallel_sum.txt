@@ -1,0 +1,21 @@
+Sample output of: ./parallel_sum
+=================================
+
+Three runs. The computed sum is often wildly off from the expected
+10000000 because all four threads race on the shared 'total'.
+
+--- Run 1 ---
+Computed sum: 6557908
+Expected:     10000000
+Off by 3442092. Race condition strikes again.
+
+--- Run 2 ---
+Computed sum: 5188380
+Expected:     10000000
+Off by 4811620. Race condition strikes again.
+
+--- Run 3 ---
+Computed sum: 5353841
+Expected:     10000000
+Off by 4646159. Race condition strikes again.
+
