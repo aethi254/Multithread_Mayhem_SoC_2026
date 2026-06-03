@@ -1,0 +1,32 @@
+=== Part 1: Joinable threads ===
+[joinable 0] running on thread ID 140194118362816
+[joinable 0] done
+[joinable 1] running on thread ID 140194109970112
+[joinable 2] running on thread ID 140194101577408
+[main] joined thread 0
+[joinable 3] running on thread ID 140194093184704
+[joinable 1] done
+[main] joined thread 1
+[joinable 2] done
+[main] joined thread 2
+[joinable 3] done
+[main] joined thread 3
+
+=== Part 2: Detached threads ===
+[detached 0] running
+[detached 1] running
+[detached 2] running
+[detached 3] running
+[detached 0] done
+[detached 1] done
+[detached 2] done
+[detached 3] done
+[main] all detached threads confirmed done
+
+=== Part 3: pthread_detach after creation ===
+[detached 99] running
+[detached 99] done
+[main] post-creation detach example done
+
+All done. Note: for joinable threads, 'done' prints BEFORE
+'joined' because the join happens after the thread exits.

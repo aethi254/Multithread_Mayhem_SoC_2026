@@ -1,0 +1,13 @@
+=== Approach A: results written into argument struct ===
+  Thread 0: sum=2500000  min=1  max=1
+  Thread 1: sum=2500000  min=1  max=1
+  Thread 2: sum=2500000  min=1  max=1
+  Thread 3: sum=2500000  min=1  max=1
+Final: sum=10000000 (expected 10000000)  min=1  max=1
+
+=== Approach B: heap-allocated return value ===
+  Thread 0: sum=2500000
+  Thread 1: sum=2500000
+  Thread 2: sum=2500000
+  Thread 3: sum=2500000
+Final: sum=10000000 (expected 10000000)

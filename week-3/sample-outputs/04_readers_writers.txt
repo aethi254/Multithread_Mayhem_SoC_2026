@@ -1,0 +1,52 @@
+Starting 6 readers and 2 writers.
+Watch for readers with overlapping t= ranges — those ran in parallel.
+Writers (marked ***) always appear exclusively.
+
+[reader 3] read db[3]=30  (held lock 51ms, t=24-75)
+[reader 2] read db[2]=20  (held lock 51ms, t=29-80)
+[reader 5] read db[5]=50  (held lock 51ms, t=48-99)
+[reader 1] read db[1]=10  (held lock 50ms, t=53-103)
+[reader 0] read db[0]=0  (held lock 51ms, t=56-107)
+[reader 4] read db[4]=40  (held lock 51ms, t=92-143)
+[reader 2] read db[2]=20  (held lock 50ms, t=105-155)
+[reader 3] read db[3]=30  (held lock 51ms, t=136-187)
+[reader 0] read db[0]=0  (held lock 51ms, t=167-218)
+[reader 1] read db[1]=10  (held lock 51ms, t=167-218)
+[reader 5] read db[5]=50  (held lock 50ms, t=175-225)
+[reader 4] read db[4]=40  (held lock 51ms, t=197-248)
+[reader 2] read db[2]=20  (held lock 50ms, t=209-259)
+[reader 3] read db[3]=30  (held lock 50ms, t=217-267)
+[reader 5] read db[5]=50  (held lock 52ms, t=267-319)
+[reader 0] read db[0]=0  (held lock 52ms, t=268-320)
+[reader 4] read db[4]=40  (held lock 52ms, t=269-321)
+[reader 1] read db[1]=10  (held lock 50ms, t=289-339)
+[WRITER 1] wrote db[1]=11  (held lock 304ms, t=117-421) ***
+[reader 5] read db[5]=50  (held lock 84ms, t=387-471)
+[reader 4] read db[4]=40  (held lock 54ms, t=417-471)
+[reader 0] read db[0]=0  (held lock 89ms, t=382-471)
+[reader 3] read db[3]=30  (held lock 126ms, t=345-471)
+[reader 1] read db[1]=11  (held lock 82ms, t=389-471)
+[reader 2] read db[2]=20  (held lock 116ms, t=355-471)
+[WRITER 0] wrote db[0]=1  (held lock 401ms, t=151-552) ***
+[reader 3] read db[3]=30  (held lock 56ms, t=547-603)
+[reader 0] read db[0]=1  (held lock 112ms, t=491-603)
+[reader 2] read db[2]=20  (held lock 78ms, t=525-603)
+[reader 5] read db[5]=50  (held lock 96ms, t=507-603)
+[reader 1] read db[1]=11  (held lock 84ms, t=519-603)
+[reader 4] read db[4]=40  (held lock 50ms, t=564-614)
+[WRITER 1] wrote db[1]=12  (held lock 132ms, t=563-695) ***
+[WRITER 0] wrote db[0]=2  (held lock 87ms, t=688-775) ***
+[WRITER 0] wrote db[0]=3  (held lock 81ms, t=906-987) ***
+[WRITER 1] wrote db[1]=13  (held lock 124ms, t=943-1067) ***
+
+Final database state:
+  db[0] = 3
+  db[1] = 13
+  db[2] = 20
+  db[3] = 30
+  db[4] = 40
+  db[5] = 50
+  db[6] = 60
+  db[7] = 70
+  db[8] = 80
+  db[9] = 90

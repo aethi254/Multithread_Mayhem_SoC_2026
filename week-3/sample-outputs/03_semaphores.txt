@@ -1,0 +1,52 @@
+=== Part 1: Ordering guarantee with a semaphore ===
+
+[B] waiting for A to finish...
+[A] doing work...
+[A] work done — signalling B
+[B] A is done, now I can proceed
+
+=== Part 2: Producer-consumer with semaphores ===
+
+[producer] put  0  (items in buffer: 1)
+[consumer] got  0  (free slots: 5)
+[producer] put  1  (items in buffer: 1)
+[producer] put  2  (items in buffer: 2)
+[consumer] got  1  (free slots: 4)
+[producer] put  3  (items in buffer: 2)
+[producer] put  4  (items in buffer: 3)
+[consumer] got  2  (free slots: 3)
+[producer] put  5  (items in buffer: 3)
+[producer] put  6  (items in buffer: 4)
+[producer] put  7  (items in buffer: 5)
+[consumer] got  3  (free slots: 1)
+[producer] put  8  (items in buffer: 5)
+[consumer] got  4  (free slots: 1)
+[producer] put  9  (items in buffer: 5)
+[consumer] got  5  (free slots: 1)
+[producer] put 10  (items in buffer: 5)
+[consumer] got  6  (free slots: 1)
+[producer] put 11  (items in buffer: 5)
+[consumer] got  7  (free slots: 1)
+[producer] put 12  (items in buffer: 5)
+[consumer] got  8  (free slots: 1)
+[producer] put 13  (items in buffer: 5)
+[consumer] got  9  (free slots: 1)
+[producer] put 14  (items in buffer: 5)
+[consumer] got 10  (free slots: 1)
+[producer] put 15  (items in buffer: 5)
+[consumer] got 11  (free slots: 1)
+[producer] put 16  (items in buffer: 5)
+[consumer] got 12  (free slots: 1)
+[producer] put 17  (items in buffer: 5)
+[consumer] got 13  (free slots: 1)
+[producer] put 18  (items in buffer: 5)
+[consumer] got 14  (free slots: 1)
+[producer] put 19  (items in buffer: 5)
+[consumer] got 15  (free slots: 1)
+[consumer] got 16  (free slots: 2)
+[consumer] got 17  (free slots: 3)
+[consumer] got 18  (free slots: 4)
+[consumer] got 19  (free slots: 5)
+
+All 20 items produced and consumed — no items lost.
+Notice: no while-loop around sem_wait. The count IS the condition.
