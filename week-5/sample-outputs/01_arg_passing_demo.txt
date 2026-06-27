@@ -1,0 +1,11 @@
+$ arg_passing_demo
+=== Argument Passing Demo ===
+
+getpid()            -> 3   (zero arguments)
+sleep(5)            -> 0   (one int argument, ticks to sleep)
+write(1, buf, 36)   -> 36   (int + pointer + int arguments)
+this string is the buffer argument
+
+Done. Notice all three calls *look* like ordinary C function
+calls from here — the trapframe machinery is invisible from
+user space. That's the whole point of the syscall stubs.

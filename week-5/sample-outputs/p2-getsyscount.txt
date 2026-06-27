@@ -1,0 +1,6 @@
+$ getsyscount_test
+Made 3 syscalls so far (getpid, uptime, sleep).
+getsyscount() reports: 4
+(4, not 3, because the call to getsyscount() itself was counted —
+see Problem 2's discussion question. Your own implementation may
+print 3 here instead, if you chose to exclude the call itself.)

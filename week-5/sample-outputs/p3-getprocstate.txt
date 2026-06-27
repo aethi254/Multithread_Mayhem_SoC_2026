@@ -1,0 +1,12 @@
+$ procpeek_test
+Parent: forked child with pid 4
+Parent: sleeping briefly so the child can start running...
+Parent: getprocstate(4) -> 3 (RUNNABLE)
+Parent: getprocstate(9999) -> -1 (no such process)
+Parent: reaping child...
+Parent: done.
+
+NOTE: the exact state you observe for the live child (RUNNABLE vs
+RUNNING vs SLEEPING) depends on timing and is not guaranteed to be
+identical every run — that's expected and worth a sentence in your
+report. -1 for the nonexistent pid should be consistent every time.

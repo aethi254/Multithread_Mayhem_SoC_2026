@@ -1,0 +1,8 @@
+$ getcmdline_test
+Full buffer (64 bytes):  "getcmdline_test"  (15 bytes copied)
+Tiny buffer (4 bytes):   "get"              (3 bytes copied, truncated)
+
+NOTE: your process name will match whatever you named the binary in
+UPROGS — it does not have to be exactly "getcmdline_test" if you named
+your file differently. The truncation behavior (3 bytes + NUL fit in a
+4-byte buffer) is the part graders will actually check.

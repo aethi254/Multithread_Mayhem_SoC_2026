@@ -1,0 +1,11 @@
+$ self_timing_demo
+=== Self-Timing Demo ===
+Calling getpid() 2000000 times...
+Ticks elapsed: 14
+(Each call still crossed into the kernel and back - see
+ theory.md Section 2 for exactly what happened 2000000 times.)
+
+NOTE: the exact tick count above will vary a lot by machine and by how
+QEMU is scheduled on your host. Some mentees see single-digit ticks,
+others see 20+. What matters is that it's not 0 — increase ITERS in your
+own copy if your build prints 0 ticks elapsed.
