@@ -1,0 +1,20 @@
+$ sched_trace
+=== Scheduler Trace Demo ===
+Forking 4 children, running for 50 ticks...
+
+Child 0 (PID 4): 14231 iterations
+Child 1 (PID 5): 13894 iterations
+Child 2 (PID 6): 14105 iterations
+Child 3 (PID 7): 13978 iterations
+
+Total ticks elapsed: 52
+
+Observation: under xv6's round-robin scheduler, all children
+should get roughly equal CPU time when run simultaneously.
+If one child consistently gets more, think about whether
+the scheduler's proc[] scan order could be causing bias.
+
+NOTE: exact iteration counts vary by run and by QEMU's scheduling
+on the host. The important thing is that all children get roughly
+comparable counts — within 10-15% of each other. If one child gets
+consistently 0 or a tiny fraction, something is wrong in the scheduler.

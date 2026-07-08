@@ -1,0 +1,11 @@
+$ priority_test
+Parent: set child 4 to priority 5, child 5 to priority 50
+Child 4 (prio 5): completed 84523 iterations
+Child 5 (prio 50): completed 3201 iterations
+Child 4 ran about 26x more than child 5
+
+NOTE: exact ratios depend on your implementation and on QEMU's
+behavior on your machine. The minimum bar: the higher-priority
+child should complete noticeably more iterations. A ratio of
+at least 3:1 with priority 5 vs 50 is reasonable; larger gaps
+are better and indicate the scheduler is working correctly.

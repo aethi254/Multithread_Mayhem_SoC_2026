@@ -1,0 +1,14 @@
+$ lock_detective
+tickslock (id 0): 0 (not held)
+cons.lock (id 1): 0 (not held)
+invalid (id 99):  -1
+After sleeping: tickslock (id 0): 0 (not held)
+
+NOTE: you will almost certainly see "not held" for both locks
+because they are only held briefly while their respective
+subsystems are actively being used. The tickslock is held
+only during timer interrupt handling (~microseconds). The
+console lock is held only during printf calls. Observing
+the lock as "held" would require extreme luck on a single
+read — your report should note that the answer is technically
+a snapshot, not a guarantee.

@@ -1,0 +1,18 @@
+$ schedviz 4
+Running 4 children for 50 ticks...
+Child 3: 14237 iterations  ################################
+Child 4: 13891 iterations  ################################
+Child 5: 14012 iterations  ################################
+Child 6: 13988 iterations  ################################
+
+$ schedviz 4 5
+(Child 3 gets priority 5, others stay at default 31)
+Child 3: 84732 iterations  ################################################################
+Child 4: 3210 iterations   ###
+Child 5: 3301 iterations   ###
+Child 6: 3198 iterations   ###
+
+NOTE: the bar chart is approximate. The important observation is
+that with default priorities, all children get roughly equal CPU
+time; after setting one child to high priority, it dominates.
+Exact ratios depend on your Problem 2 implementation.
