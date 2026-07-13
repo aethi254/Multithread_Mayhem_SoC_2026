@@ -1,0 +1,31 @@
+$ addrspace_probe
+=== Address Space Probe ===
+
+Current break (top of mapped memory): 20480
+
+Growing the address space by 4096 bytes (one page)...
+sbrk(4096) returned (old break): 20480
+New break:                       24576
+Growth observed:                 4096 bytes
+
+Growing again by 8192 bytes (two pages)...
+sbrk(8192) returned (old break): 24576
+New break:                       32768
+Growth observed:                 8192 bytes
+
+Writing to the first byte of the newly mapped region...
+Wrote 'X' at address 20480 successfully - it's real, mapped memory.
+
+Observation: every one of these addresses is inside the SAME
+address space, growing upward from wherever the process's
+code, data, and original stack left off. This week's
+alloc_thread_stack() (Problem 3) grows the address space in
+exactly this same direction, for exactly the same underlying
+reason - it just calls the memory 'a thread's stack' instead
+of 'the heap'. The kernel doesn't know or care about that
+distinction; it's purely a convention on the user-space side.
+
+NOTE: the exact starting break value (20480 above) will differ on your
+build - it depends on the size of the compiled binary's code and data
+segments. What matters is that each sbrk() call returns the previous
+break and the new break is exactly that much higher.

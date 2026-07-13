@@ -1,0 +1,24 @@
+$ stack_alloc_test
+=== Thread Stack Allocator Test ===
+
+Requesting first stack of 4096 bytes...
+alloc_thread_stack(4096) -> top = 20480
+
+Requesting second stack of 4096 bytes...
+alloc_thread_stack(4096) -> top = 24576
+
+Difference between the two returned tops: 4096 bytes
+(matches the requested size exactly - the two stacks are
+perfectly adjacent, with no guard page between them.)
+
+Reminder from the problem statement: this is the known limitation
+Problem 3 asks you to discuss, not fix. If a thread using the first
+stack overflowed downward past its lowest byte, it would silently
+start writing into whatever comes before it in the address space
+(in this case, the tail end of the process's own heap/data) with no
+fault at all - Problem 4 fixes exactly this with a guard page.
+
+NOTE: the exact starting address (20480 above) depends on the size
+of the compiled test binary, same as in the address-space probe demo.
+What matters is that the second call's returned top is exactly
+`size` bytes above the first call's.

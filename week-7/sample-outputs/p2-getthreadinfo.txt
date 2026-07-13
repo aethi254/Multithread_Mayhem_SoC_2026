@@ -1,0 +1,19 @@
+$ threadinfo_test
+=== Thread Info Test ===
+
+Before fork:
+  pid=3  tgid=3  is_thread=0
+
+Forking...
+
+[parent] pid=3  tgid=3  is_thread=0
+[child]  pid=4  tgid=4  is_thread=0
+
+Check: for an ordinary process, tgid should equal pid (it is its own,
+one-member thread group). Parent: tgid==pid -> true. Child: tgid==pid
+-> true.
+
+NOTE: pid values above (3 and 4) depend on how many processes booted
+before this test ran (init and the shell already occupy earlier pids).
+What matters is that parent and child each get their own tgid, equal
+to their own pid, since no thread-sharing exists yet this week.

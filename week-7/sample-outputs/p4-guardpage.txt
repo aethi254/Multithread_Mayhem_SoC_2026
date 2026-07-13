@@ -1,0 +1,31 @@
+$ guardpage_test
+=== Guard Page Test ===
+
+Requesting a guarded stack of 4096 usable bytes...
+alloc_thread_stack_guarded(4096) -> top = 28672
+
+Writing to the last valid byte of the usable stack (top - 1)...
+Wrote to last valid byte at address 28671: ok
+
+Now deliberately writing one byte below the usable stack region
+(this should land inside the guard page and crash this process)...
+
+usertrap(): unexpected scause 0x000000000000000f pid=5
+            sepc=0x0000000000001196 stval=0x0000000000005fff
+$
+
+NOTE: the two lines starting with "usertrap()" are printed by the
+KERNEL, not by guardpage_test.c - the program never reaches its own
+"ERROR: guard page did not trigger a fault!" line, which is exactly
+the expected, correct outcome. scause 0xf (15) is a store/AMO page
+fault on RISC-V - confirming the write hit unmapped memory rather
+than silently succeeding. stval holds the faulting virtual address,
+which should be exactly one byte below the start of the region
+alloc_thread_stack_guarded mapped (i.e., inside the unmapped guard
+page). The shell's `$` prompt returns immediately afterward because
+only this one process was killed - the rest of xv6 is unaffected.
+
+Your own exact pid, sepc, and stval values will differ - what matters
+is scause == 0xf (or 0xd, if your test instead reads from the guard
+page) and that the process dies instead of the write silently
+succeeding.
